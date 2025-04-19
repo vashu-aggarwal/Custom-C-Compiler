@@ -1,0 +1,16 @@
+term = <input> | variable | literal
+expression = term | term + term | ...
+rel = term < term | ...
+instr = variable = expression | <if> rel <then> instr | <goto> :label | <output> term | :label
+
+
+
+n = input
+i = 0
+:label
+output i
+i = i + 1
+if i < n then goto :label
+if i < 10 then goto :label2
+output 69
+:label2
