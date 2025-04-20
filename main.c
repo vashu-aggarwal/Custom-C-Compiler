@@ -4,6 +4,7 @@
 
 #include <ctype.h>
 #include <stdio.h>
+#include <stdio.h>
 #define DS_IMPLEMENTATION
 #include "ds.h"
 #include <string.h>
@@ -236,7 +237,8 @@ int lexer_tokenize(char *buffer, unsigned int length, ds_dynamic_array *tokens)
         tok = lexer_next_token(&lexer);
         if (ds_dynamic_array_append(tokens, &tok) != 0)
         {
-            DS_PANIC("Failed to append token to array");
+            fprintf(stderr, "Failed to append token to array\n");
+            exit(1);
         }
     } while (tok.kind != END);
 
