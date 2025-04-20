@@ -1,3 +1,7 @@
+// Commands to run this code
+// g++ -std=c++11 -o lexer demo.cpp 
+// type example.txt | .\lexer
+
 #include <iostream>
 #include <vector>
 #include <string>
