@@ -12,5 +12,5 @@ output i
 i = i + 1
 if i < n then goto :label
 if i < 10 then goto :label2
-output 69
+output 123
 :label2
