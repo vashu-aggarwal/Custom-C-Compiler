@@ -1,3 +1,3 @@
 ### Commands to run
 make
-./lexer < example.txt
+./main < example.txt

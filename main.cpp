@@ -1,18 +1,21 @@
 #include "lexer.h"
+#include "parser.h"
 #include <iostream>
 #include <sstream>
 #include <vector>
 
-std::string read_input() {
-    std::ostringstream ss;
-    ss << std::cin.rdbuf();
+using namespace std;
+
+string read_input() {
+    ostringstream ss;
+    ss << cin.rdbuf();
     return ss.str();
 }
 
 int main() {
-    std::string input = read_input();
+    string input = read_input();
     Lexer lexer(input);
-    std::vector<Token> tokens;
+    vector<Token> tokens;
 
     Token tok;
     do{
@@ -20,9 +23,17 @@ int main() {
         tokens.push_back(tok);
     }while (tok.kind != TokenKind::END);
 
-    std::cout << tokens.size() << "\n";
+    cout << tokens.size() << "\n";
     for (const auto& t : tokens) {
         print_token(t);
     }
+    cout<<"\n\n --------------PARSER-----------\n";
+    struct parser p;
+    struct program_node program;
+    parser_init(tokens,&p);
+
+    parse_program(&p, &program);
+
+    print_program(&program);
     return 0;
 }
