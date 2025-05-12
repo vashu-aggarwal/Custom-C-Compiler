@@ -1,5 +1,6 @@
 #include "lexer.h"
 #include "parser.h"
+#include "assembler.h"
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -35,5 +36,7 @@ int main() {
     parse_program(&p, &program);
 
     print_program(&program);
+
+    program_asm(&program);
     return 0;
 }
